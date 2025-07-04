@@ -1,11 +1,13 @@
 from flask import Flask, request, render_template
 import openai
 from activities import activity_data
+import os
 
 app = Flask(__name__)
 
 # Set your OpenAI API key here
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
